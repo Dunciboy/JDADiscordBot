@@ -16,6 +16,7 @@
 
 package be.duncanc.discordmodbot.bot
 
+import be.duncanc.discordmodbot.bot.services.ColourChanger
 import be.duncanc.discordmodbot.bot.utils.ExecutorServiceEventManager
 import be.duncanc.discordmodbot.data.configs.properties.DiscordModBotConfigurationProperties
 import net.dv8tion.jda.core.AccountType
@@ -47,7 +48,8 @@ class RunBots
                         .setEventManager(ExecutorServiceEventManager(it.substring(30)))
                         .setToken(it)
                         .setBulkDeleteSplittingEnabled(false)
-                        .addEventListener(*applicationContext.getBeansOfType(ListenerAdapter::class.java).values.toTypedArray())
+                        //.addEventListener(*applicationContext.getBeansOfType(ListenerAdapter::class.java).values.toTypedArray())
+                        .addEventListener(ColourChanger())
                         .build()
             }
         } catch (e: Exception) {
