@@ -24,17 +24,13 @@ import java.awt.Color
 import javax.persistence.*
 
 @Entity
-class GuildMemberGate(
+data class GuildMemberGate(
         @Id
         val guildId: Long? = null,
-        @Column(nullable = false)
-        val memberRole: Long? = null,
-        @Column(nullable = false)
-        val rulesTextChannel: Long? = null,
-        @Column(nullable = false)
-        val gateTextChannel: Long? = null,
-        @Column(nullable = false)
-        val welcomeTextChannel: Long? = null,
+        var memberRole: Long? = null,
+        var rulesTextChannel: Long? = null,
+        var gateTextChannel: Long? = null,
+        var welcomeTextChannel: Long? = null,
         @ElementCollection(targetClass = WelcomeMessage::class)
         val welcomeMessages: MutableSet<WelcomeMessage> = HashSet(),
         @ElementCollection
