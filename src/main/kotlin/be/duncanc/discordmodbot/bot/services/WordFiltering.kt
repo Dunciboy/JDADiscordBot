@@ -25,7 +25,7 @@ class WordFiltering(
     val logger: GuildLogger
 ) : CommandModule(
     arrayOf("AddWordFilter"),
-    "[Word] [${Arrays.toString(FilterMethod.values())}",
+    "[Word] [${FilterMethod.values().contentToString()}",
     "Adds a word to the blacklist and filters it based on the supplied filter method",
     requiredPermissions = arrayOf(Permission.MESSAGE_MANAGE)
 ) {
